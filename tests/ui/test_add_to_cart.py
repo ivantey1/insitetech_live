@@ -5,7 +5,7 @@ from pages.product_page import ProductPage
 
 
 @pytest.fixture
-def product_setup(driver):
+def product_page(driver):
     page = ProductPage(driver)
     page.open()
     page.close_cookie_btn()

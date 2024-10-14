@@ -12,14 +12,17 @@ pytest tests
 ## Структура проекта
 
 ```
-.
-├── conftest.py         # Конфигурация PyTest и WebDriver
-├── pages/
-│   └── product_page.py # Page Object для страницы продукта
+project_root/
 ├── tests/
-│   └── test_add_to_cart.py # Тесты добавления в корзину
-├── requirements.txt    # Зависимости проекта
-└── README.md           # Документация
+│   ├── ui/
+│   │   └── test_add_to_cart.py
+│   └── api/
+│       └── test_shops_api.py
+├── pages/
+│   └── product_page.py
+├── conftest.py
+├── requirements.txt
+└── README.md
 ```
 
 ## Планы
@@ -27,9 +30,9 @@ pytest tests
 1. **Улучшение:**
    - Заменить time.sleep на надежные методы ожидания
    - Создать BasePage для общей функциональности
+   - Вынести config
    - Вынести утилиты в отдельные модули
    - Реализовать генерацию и очистку тестовых данных
-   - Добавить логирование и генерацию отчетов
 
 2. **Отчетность:**
    - Добавить логирование и генерацию отчетов
@@ -45,10 +48,10 @@ pytest tests
 
 ```bash
 pytest tests                          # Все тесты
-pytest tests/test_add_to_cart.py      # Конкретный файл
-pytest tests/test_add_to_cart.py::test_cart_counter  # Конкретный тест
+pytest tests/ui                       # Только UI тесты
+pytest tests/api                      # pytest tests/api
+pytest tests/api/test_shops_api.py::TestShopsApi::test_get_shops_status_code # Запуск конкретного теста
 ```
-
 ____________________________
 
 
